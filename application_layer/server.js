@@ -1,7 +1,7 @@
 const fs = require('fs')
 const express = require('express')
 const path = require('path')
-const { run } = require('./dbConnection')
+const { run } = require('./src/dbConnection')
 
 const router = express()
 

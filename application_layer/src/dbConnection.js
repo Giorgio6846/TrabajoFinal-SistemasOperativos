@@ -2,7 +2,7 @@ const { MongoClient, ServerApiVersion } = require("mongodb");
 var fs = require('fs')
 
 // Replace the placeholder with your Atlas connection string
-const url = JSON.parse(fs.readFileSync('./application_layer/credentialsServer.json', 'utf8'))
+const url = JSON.parse(fs.readFileSync('/webServer/application_layer/src/credentialsServer.json', 'utf8'))
 
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
