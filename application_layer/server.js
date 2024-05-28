@@ -1,6 +1,7 @@
 const fs = require('fs')
 const express = require('express')
 const path = require('path')
+const { run } = require('./dbConnection')
 
 const router = express()
 
@@ -31,4 +32,9 @@ router.get('/register', (req,res) =>{
 
 router.get('/login', (req,res) =>{
     res.render("login")
+})
+
+router.get('/test', (req,res) =>{ 
+    run()
+    res.render("index")
 })

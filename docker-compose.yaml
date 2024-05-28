@@ -23,3 +23,19 @@ services:
       - '27017:27017'
     volumes:
       - ./data_layer/:/data/db/
+
+  garage:
+    image: dxflrs/garage:d38509ef4b36a558c6aea71b52d27ba561ad57a4
+    restart: always
+    #environment:
+    #  MONGO_INITDB_ROOT_USERNAME: "loliadmin"
+    #  MONGO_INITDB_ROOT_PASSWORD: "loliadmin"
+    ports:
+      - 3900:3900
+      - 3901:3901
+      - 3902:3902
+      - 3903:3903
+    volumes:
+      - ./garage.toml:/etc/garage.toml
+      - ./data_layer/S3/meta:/var/lib/garage/meta
+      - ./data_layer/S3/data:/var/lib/garage/data
