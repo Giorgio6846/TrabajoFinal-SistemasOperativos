@@ -1,3 +1,3 @@
-npx tailwindcss -i ./presentation_layer/css/input.css -o ./presentation_layer/css/output.css --minify & 
+npx tailwindcss -i ./presentation_layer/css/input.css -o ./presentation_layer/css/output.css & 
 npx nodemon application_layer/server.js &
 wait
