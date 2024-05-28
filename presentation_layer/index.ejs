@@ -1,0 +1,544 @@
+<!--
+// v0 by Vercel.
+// https://v0.dev/t/nf3bToZtQ3I
+-->
+
+<html lang="es">
+  <head>
+    <title>ReservaMentor</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"" />
+    <link rel="stylesheet" href="output.css" />
+  </head>
+
+  <header class="flex items-center justify-between px-4 py-3 border-b dark:border-gray-800">
+  <a class="flex items-center gap-2" href="#">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="w-6 h-6 text-[#1d9bf0]"
+    >
+      <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+    </svg>
+    <span class="font-bold text-xl">Twitter</span>
+  </a>
+  <nav class="flex items-center gap-4">
+    <a class="text-gray-500 hover:text-gray-900 dark:hover:text-gray-100" href="#">
+      Home
+    </a>
+    <a class="text-gray-500 hover:text-gray-900 dark:hover:text-gray-100" href="#">
+      Explore
+    </a>
+    <a class="text-gray-500 hover:text-gray-900 dark:hover:text-gray-100" href="#">
+      Notifications
+    </a>
+    <a class="text-gray-500 hover:text-gray-900 dark:hover:text-gray-100" href="#">
+      Messages
+    </a>
+    <a class="text-gray-500 hover:text-gray-900 dark:hover:text-gray-100" href="#">
+      Profile
+    </a>
+    <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 rounded-full">
+      Tweet
+    </button>
+  </nav>
+</header>
+<main class="grid grid-cols-[300px_1fr] h-[calc(100vh-64px)]">
+  <div class="border-r dark:border-gray-800 overflow-y-auto">
+    <div class="p-4 border-b dark:border-gray-800">
+      <input
+        class="flex h-10 rounded-md border-input px-3 py-2 ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full bg-transparent border-0 focus:ring-0 text-lg"
+        placeholder="What's happening?"
+      />
+      <div class="flex justify-between items-center mt-2">
+        <div class="flex items-center gap-2">
+          <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 rounded-full">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5 text-[#1d9bf0]"
+            >
+              <rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect>
+              <circle cx="9" cy="9" r="2"></circle>
+              <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path>
+            </svg>
+          </button>
+          <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 rounded-full">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5 text-[#1d9bf0]"
+            >
+              <rect x="3" y="8" width="18" height="4" rx="1"></rect>
+              <path d="M12 8v13"></path>
+              <path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"></path>
+              <path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"></path>
+            </svg>
+          </button>
+          <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 rounded-full">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5 text-[#1d9bf0]"
+            >
+              <path d="m9 12 2 2 4-4"></path>
+              <path d="M5 7c0-1.1.9-2 2-2h10a2 2 0 0 1 2 2v12H5V7Z"></path>
+              <path d="M22 19H2"></path>
+            </svg>
+          </button>
+          <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 rounded-full">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5 text-[#1d9bf0]"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+              <line x1="9" x2="9.01" y1="9" y2="9"></line>
+              <line x1="15" x2="15.01" y1="9" y2="9"></line>
+            </svg>
+          </button>
+          <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 rounded-full">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5 text-[#1d9bf0]"
+            >
+              <path d="M8 2v4"></path>
+              <path d="M16 2v4"></path>
+              <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+              <path d="M3 10h18"></path>
+            </svg>
+          </button>
+        </div>
+        <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 rounded-full">
+          Tweet
+        </button>
+      </div>
+    </div>
+    <div class="space-y-4 p-4">
+      <div class="flex items-start gap-3">
+        <span class="relative flex shrink-0 overflow-hidden w-10 h-10 rounded-full">
+          <span class="flex h-full w-full items-center justify-center rounded-full bg-muted">AC</span>
+        </span>
+        <div class="flex-1">
+          <div class="flex items-center gap-2">
+            <span class="font-bold">Acme Inc</span>
+            <span class="text-gray-500 dark:text-gray-400">@acmeinc</span>
+            <span class="text-gray-500 dark:text-gray-400">· 1h</span>
+          </div>
+          <p class="mt-2">
+            We're excited to announce the launch of our new product! Check it out and let us know what you think.
+          </p>
+          <div class="flex items-center gap-4 mt-2">
+            <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 rounded-full">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-5 h-5 text-gray-500 dark:text-gray-400"
+              >
+                <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
+              </svg>
+            </button>
+            <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 rounded-full">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-5 h-5 text-gray-500 dark:text-gray-400"
+              >
+                <path d="m17 2 4 4-4 4"></path>
+                <path d="M3 11v-1a4 4 0 0 1 4-4h14"></path>
+                <path d="m7 22-4-4 4-4"></path>
+                <path d="M21 13v1a4 4 0 0 1-4 4H3"></path>
+              </svg>
+            </button>
+            <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 rounded-full">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-5 h-5 text-gray-500 dark:text-gray-400"
+              >
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+              </svg>
+            </button>
+            <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 rounded-full">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-5 h-5 text-gray-500 dark:text-gray-400"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" x2="12" y1="3" y2="15"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="flex items-start gap-3">
+        <span class="relative flex shrink-0 overflow-hidden w-10 h-10 rounded-full">
+          <span class="flex h-full w-full items-center justify-center rounded-full bg-muted">AC</span>
+        </span>
+        <div class="flex-1">
+          <div class="flex items-center gap-2">
+            <span class="font-bold">Acme Inc</span>
+            <span class="text-gray-500 dark:text-gray-400">@acmeinc</span>
+            <span class="text-gray-500 dark:text-gray-400">· 2h</span>
+          </div>
+          <p class="mt-2">We're hiring! Check out our open positions and join our team.</p>
+          <div class="flex items-center gap-4 mt-2">
+            <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 rounded-full">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-5 h-5 text-gray-500 dark:text-gray-400"
+              >
+                <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
+              </svg>
+            </button>
+            <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 rounded-full">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-5 h-5 text-gray-500 dark:text-gray-400"
+              >
+                <path d="m17 2 4 4-4 4"></path>
+                <path d="M3 11v-1a4 4 0 0 1 4-4h14"></path>
+                <path d="m7 22-4-4 4-4"></path>
+                <path d="M21 13v1a4 4 0 0 1-4 4H3"></path>
+              </svg>
+            </button>
+            <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 rounded-full">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-5 h-5 text-gray-500 dark:text-gray-400"
+              >
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+              </svg>
+            </button>
+            <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 rounded-full">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-5 h-5 text-gray-500 dark:text-gray-400"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" x2="12" y1="3" y2="15"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="flex items-start gap-3">
+        <span class="relative flex shrink-0 overflow-hidden w-10 h-10 rounded-full">
+          <span class="flex h-full w-full items-center justify-center rounded-full bg-muted">AC</span>
+        </span>
+        <div class="flex-1">
+          <div class="flex items-center gap-2">
+            <span class="font-bold">Acme Inc</span>
+            <span class="text-gray-500 dark:text-gray-400">@acmeinc</span>
+            <span class="text-gray-500 dark:text-gray-400">· 3h</span>
+          </div>
+          <p class="mt-2">Check out our latest blog post on the future of technology.</p>
+          <div class="flex items-center gap-4 mt-2">
+            <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 rounded-full">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-5 h-5 text-gray-500 dark:text-gray-400"
+              >
+                <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
+              </svg>
+            </button>
+            <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 rounded-full">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-5 h-5 text-gray-500 dark:text-gray-400"
+              >
+                <path d="m17 2 4 4-4 4"></path>
+                <path d="M3 11v-1a4 4 0 0 1 4-4h14"></path>
+                <path d="m7 22-4-4 4-4"></path>
+                <path d="M21 13v1a4 4 0 0 1-4 4H3"></path>
+              </svg>
+            </button>
+            <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 rounded-full">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-5 h-5 text-gray-500 dark:text-gray-400"
+              >
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+              </svg>
+            </button>
+            <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 rounded-full">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-5 h-5 text-gray-500 dark:text-gray-400"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" x2="12" y1="3" y2="15"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="border-l dark:border-gray-800 overflow-y-auto">
+    <div class="p-4 border-b dark:border-gray-800">
+      <h2 class="text-xl font-bold">Trending</h2>
+      <div class="mt-4 space-y-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="text-gray-500 dark:text-gray-400">#Trending</span>
+            <span class="font-bold">Technology</span>
+          </div>
+          <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 rounded-full">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5 text-gray-500 dark:text-gray-400"
+            >
+              <polyline points="18 8 22 12 18 16"></polyline>
+              <polyline points="6 8 2 12 6 16"></polyline>
+              <line x1="2" x2="22" y1="12" y2="12"></line>
+            </svg>
+          </button>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="text-gray-500 dark:text-gray-400">#Trending</span>
+            <span class="font-bold">Sports</span>
+          </div>
+          <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 rounded-full">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5 text-gray-500 dark:text-gray-400"
+            >
+              <polyline points="18 8 22 12 18 16"></polyline>
+              <polyline points="6 8 2 12 6 16"></polyline>
+              <line x1="2" x2="22" y1="12" y2="12"></line>
+            </svg>
+          </button>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="text-gray-500 dark:text-gray-400">#Trending</span>
+            <span class="font-bold">Entertainment</span>
+          </div>
+          <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 rounded-full">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5 text-gray-500 dark:text-gray-400"
+            >
+              <polyline points="18 8 22 12 18 16"></polyline>
+              <polyline points="6 8 2 12 6 16"></polyline>
+              <line x1="2" x2="22" y1="12" y2="12"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="p-4 border-b dark:border-gray-800">
+      <h2 class="text-xl font-bold">Who to follow</h2>
+      <div class="mt-4 space-y-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="relative flex shrink-0 overflow-hidden w-10 h-10 rounded-full">
+              <span class="flex h-full w-full items-center justify-center rounded-full bg-muted">AC</span>
+            </span>
+            <div>
+              <div class="font-bold">Acme Inc</div>
+              <div class="text-gray-500 dark:text-gray-400">@acmeinc</div>
+            </div>
+          </div>
+          <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 rounded-full">
+            Follow
+          </button>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="relative flex shrink-0 overflow-hidden w-10 h-10 rounded-full">
+              <span class="flex h-full w-full items-center justify-center rounded-full bg-muted">AC</span>
+            </span>
+            <div>
+              <div class="font-bold">John Doe</div>
+              <div class="text-gray-500 dark:text-gray-400">@johndoe</div>
+            </div>
+          </div>
+          <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 rounded-full">
+            Follow
+          </button>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="relative flex shrink-0 overflow-hidden w-10 h-10 rounded-full">
+              <span class="flex h-full w-full items-center justify-center rounded-full bg-muted">AC</span>
+            </span>
+            <div>
+              <div class="font-bold">Jane Doe</div>
+              <div class="text-gray-500 dark:text-gray-400">@janedoe</div>
+            </div>
+          </div>
+          <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 rounded-full">
+            Follow
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

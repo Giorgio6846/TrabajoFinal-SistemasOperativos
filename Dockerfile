@@ -2,22 +2,19 @@ FROM node:21-alpine3.18
 
 WORKDIR /webServer
 
-EXPOSE 8080
+COPY ./ /webServer/
 
-RUN mkdir -p /webServer/application_layer
-RUN mkdir -p /webServer/presentation_layer
-
-COPY /application_layer/package.json /webServer/application_layer
-COPY /application_layer/package-lock.json /webServer/application_layer/package-lock.json
+RUN chmod 777 tailwind.sh
+#RUN ./tailwind.sh
 
 WORKDIR /webServer/application_layer
 
 RUN npm install
+RUN npm run build-css
+
+#CMD ["npm","run", "start"]
+
+#CMD ["npx","nodemon", "server.js"]
 
 WORKDIR /webServer
-
-COPY /application_layer/ /webServer/application_layer/
-
-WORKDIR /webServer/application_layer
-
-CMD ["npx","nodemon", "server.js"]
+CMD ["./tailwind.sh"]
