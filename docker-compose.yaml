@@ -25,11 +25,8 @@ services:
       - ./data_layer/:/data/db/
 
   garage:
-    image: dxflrs/garage:d38509ef4b36a558c6aea71b52d27ba561ad57a4
+    image: dxflrs/garage:v1.0.0
     restart: always
-    #environment:
-    #  MONGO_INITDB_ROOT_USERNAME: "loliadmin"
-    #  MONGO_INITDB_ROOT_PASSWORD: "loliadmin"
     ports:
       - 3900:3900
       - 3901:3901
