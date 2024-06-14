@@ -13,7 +13,7 @@ router.post('/authenticate', async(req, res) => {
     return res.status(400).json({ message: '"password" is required'});
   }
 
-  const user = await User.findOne({email});
+  const user = await User.findOne({email});  
 
   if(!user) {
     return res.status(401).json({message: 'Email or password is incorrect'});

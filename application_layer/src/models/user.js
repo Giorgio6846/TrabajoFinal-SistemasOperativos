@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 const bcrypt =require('bcrypt');
+
 const userSchema = new mongoose.Schema({
-    name: {
+    username: {
         type: String,
         required: true
     },
@@ -13,7 +14,18 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    posts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Post'}]
+    posts: [{ 
+        type: mongoose.Schema.Types.ObjectId, ref: 'Post'
+    }],
+    likedPosts: {
+        type: mongoose.Schema.Types.ObjectId, red:'Post'
+    },
+    following: [{
+        type: mongoose.Schema.Types.ObjectId, ref: 'User'
+    }],
+    followers: [{
+        type: mongoose.Schema.Types.ObjectId, ref: 'User'
+    }]
 });
 
 userSchema.pre('save', async function (next) {

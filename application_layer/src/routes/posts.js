@@ -34,19 +34,19 @@ router.post('/posts',
         }
     })
 
-    router.delete('/posts/:id', auth, async (req,res) => {
-        try {
-            const post = await Post.findOne({ _id: req.params.id, author: req.user.id});
-            if(!post) {
-                return res.status(404).json({ message: 'Post not found'})
-            }
-            
-            await Post.delteOne({ _id: req.params.id});
-            res.status(204).json({message: 'Post deleted'});
-        } catch(err) {
-            console.error(err.message);
-            res.status(500).send('Server Error')
+router.delete('/posts/:id', auth, async (req,res) => {
+    try {
+        const post = await Post.findOne({ _id: req.params.id, author: req.user.id});
+        if(!post) {
+            return res.status(404).json({ message: 'Post not found'})
         }
-    })
+        
+        await Post.delteOne({ _id: req.params.id});
+        res.status(204).json({message: 'Post deleted'});
+    } catch(err) {
+        console.error(err.message);
+        res.status(500).send('Server Error')
+    }
+})
 
-    module.exports = router
+module.exports = router
