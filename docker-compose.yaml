@@ -14,7 +14,8 @@ services:
       - ./application_layer/src/:/webServer/application_layer/src/:website
       - ./application_layer/server.js:/webServer/application_layer/server.js:website
       - ./presentation_layer/:/webServer/presentation_layer/:website
-      
+    environment:
+      - JWT_SECRET='secretxd'
   mongo:
     image: mongo
     restart: always

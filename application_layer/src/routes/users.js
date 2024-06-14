@@ -13,7 +13,16 @@ router.post('/register', async(req,res) =>{
 
 router.get('/user', auth, async (req,res) =>{
     try {
-        const userId = req.user.
+        const userId = req.user.id;
+
+        const user = await User.findById(userId);
+
+        const userName = user.name;
+
+        res.json({ name: userName });
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error')
     }
 })
 
