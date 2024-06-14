@@ -4,8 +4,7 @@
   "main": "server.js",
   "scripts": {
     "server": "nodemon server.js",
-    "build-css": "tailwindcss -i ./../presentation_layer/css/input.css -o ./../presentation_layer/css/output.css --watch",
-    "start": "npm run server && npm run build-css"
+    "start": "npm run server"
   },
   "author": "",
   "license": "ISC",
