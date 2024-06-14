@@ -13,7 +13,10 @@ services:
     volumes: 
       - ./application_layer/src/:/webServer/application_layer/src/:website
       - ./application_layer/server.js:/webServer/application_layer/server.js:website
-      - ./presentation_layer/:/webServer/presentation_layer/:website
+      - ./application_layer/package.json:/webServer/application_layer/package.json:website
+      - ./application_layer/package-lock.json:/webServer/application_layer/package-lock.json:website
+      
+      - ./SociMed/:/webServer/SociMed/:website
     environment:
       - JWT_SECRET='secretxd'
   mongo:

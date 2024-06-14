@@ -1,6 +1,6 @@
-const mongosee = require('mongoose');
+const mongoose = require('mongoose');
 const bcrypt =require('bcrypt');
-const userSchema = new mongosee.Schema({
+const userSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -13,7 +13,7 @@ const userSchema = new mongosee.Schema({
         type: String,
         required: true
     },
-    posts: [{ type: mongosee.Schema.Types.ObjectId, ref: 'Post'}]
+    posts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Post'}]
 });
 
 userSchema.pre('save', async function (next) {
