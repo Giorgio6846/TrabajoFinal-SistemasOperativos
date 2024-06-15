@@ -29,6 +29,27 @@
 import "../styles/mainPage.css";
 
 export default {
+  data() {
+    return {
+      postInfo: null,
+    };
+  },
+  mounted() {
+    this.fetchData();
+  },
+  methods: {
+    async fetchData() {
+      try {
+        const response = await fetch("https://api.example.com/data");
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        this.postInfo = await response.json();
+      } catch (error) {
+        console.error("Hubo un problema con la solicitud Fetch:", error);
+      }
+    },
+  },
   name: "mainPage",
 };
 </script>
