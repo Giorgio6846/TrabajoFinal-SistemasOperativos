@@ -1,23 +1,20 @@
 <template>
   <div class="mainPage">
     <div class="firstColumn">
-      <ul>
-        <li>
-          <img
-            class="logoSociMed"
-            src="../assets/sociMedIMG.png"
-            alt="Image of the company SociMed"
-          />
-        </li>
-        <li>Inicio</li>
-        <li>Buscar</li>
-        <li>Perfil</li>
-      </ul>
+      <img
+        class="logoSociMed"
+        src="../assets/sociMedIMG.png"
+        alt="Image of the company SociMed"
+      />
+      <h3>Inicio</h3>
+      <h3>Buscar</h3>
+      <h3>Perfil</h3>
     </div>
     <div class="secondColumn">
       <div class="search">
         <input type="text" placeholder="¡¿Qué está pasando?!" />
       </div>
+      <div class="publicacion"></div>
     </div>
     <div class="thirdColumn">
       <div>
