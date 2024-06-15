@@ -1,0 +1,48 @@
+.mainPage {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+}
+li {
+  list-style-type: none;
+}
+ul {
+  padding: 0px;
+  margin: 0px;
+}
+
+.firstColumn {
+  height: 100%;
+  background-color: #a252be;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+}
+
+.logoSociMed {
+  width: 100px;
+  height: 100px;
+}
+
+.secondColumn {
+  height: 100%;
+  background-color: #8960b2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.thirdColumn {
+  height: 100%;
+  background-color: #a252be;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+}
