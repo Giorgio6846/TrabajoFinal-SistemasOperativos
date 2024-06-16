@@ -36,7 +36,7 @@
           />
         </div>
       </div>
-      <button type="submit" class="primary-button">Register</button>
+      <button type="submit" class="primary-button" @click="handleSubmit()">Register</button>
     </form>
     <div class="register-link-container">
       <p class="register-link">
@@ -51,6 +51,8 @@
 import { useRouter } from "vue-router";
 
 export default {
+  //todo: Verify password
+
   name: "RegisterPage",
   setup() {
     const router = useRouter();
@@ -64,6 +66,14 @@ export default {
   },
   methods: {
     handleSubmit() {
+      const reponse = axios.post("register", {
+        username: this.username,
+        email: this.email,
+        password: this.password
+      });
+
+      console.log(response)
+
       console.log("Username:", this.username);
       console.log("Email:", this.email);
       console.log("Password:", this.password);

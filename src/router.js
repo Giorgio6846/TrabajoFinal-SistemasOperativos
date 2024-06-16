@@ -1,4 +1,5 @@
 import { createWebHistory, createRouter } from "vue-router";
+import axios from "axios"
 
 import mainPage from "./components/mainPage.vue";
 import loginPage from "./components/loginPage.vue";

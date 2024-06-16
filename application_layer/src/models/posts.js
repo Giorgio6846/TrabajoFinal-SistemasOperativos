@@ -6,7 +6,7 @@ const postSchema = new mongoose.Schema({
         ref: 'User',
         required: true
     },
-    title: {
+    namefileFromBucket: {
         type: String,
         required: true
     },
@@ -14,21 +14,21 @@ const postSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    tags: {
-        type: String
-    },
     createdAt: {
         type: Date,
         default: Date.now
     },
     likedBy: [{
-        types: mongoose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }],
     comments: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Comments'
-    }]
+    }],
+    amountLikes: {
+        type: Number
+    }
 });
 
 postSchema.pre('save', async function() {

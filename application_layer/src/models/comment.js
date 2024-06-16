@@ -17,7 +17,7 @@ const commentSchema = new mongoose.Schema({
 });
 
 //Inserts the comment into the array post
-postSchema.pre('save', async function() {
+commentSchema.pre('save', async function() {
     try {
         const post = await mongoose.model('Comment').findByIdAndUpdate(
             this.comments,
