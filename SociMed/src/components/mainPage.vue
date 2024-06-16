@@ -17,6 +17,10 @@
       <div class="publicacion"></div>
     </div>
     <div class="thirdColumn">
+      <div class="loginRegister">
+        <button><router-link to="/login">Login</router-link></button>
+        <button><router-link to="/register">Register</router-link></button>
+      </div>
       <div>
         <h2>Tendencias</h2>
         <div class="tendencias"></div>

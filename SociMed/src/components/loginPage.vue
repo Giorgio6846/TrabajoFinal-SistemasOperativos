@@ -1,4 +1,5 @@
 <template>
+  <button><router-link to="/">Main Page</router-link></button>
   <div class="login-container">
     <h1>Login to SociMed</h1>
     <form @submit.prevent="handleSubmit">
@@ -19,36 +20,38 @@
       <button type="submit" class="primary-button">Login</button>
     </form>
     <div class="register-link-container">
-      <p class="register-link">Don't have an account? <router-link to="/register">Register here</router-link></p>
+      <p class="register-link">
+        Don't have an account?
+        <router-link to="/register">Register here</router-link>
+      </p>
     </div>
   </div>
 </template>
 
 <script>
-import { useRouter } from 'vue-router';
+import { useRouter } from "vue-router";
 
 export default {
-  name: 'LoginPage',
+  name: "LoginPage",
   setup() {
     const router = useRouter();
     return {
       router,
-      username: '',
-      password: ''
+      username: "",
+      password: "",
     };
   },
   methods: {
     handleSubmit() {
-      console.log('Username:', this.username);
-      console.log('Password:', this.password);
-    }
-  }
+      console.log("Username:", this.username);
+      console.log("Password:", this.password);
+    },
+  },
 };
 </script>
 
-
 <style scoped>
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css");
 
 .login-container {
   max-width: 600px;
@@ -59,7 +62,7 @@ export default {
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
 }
 
 h1 {

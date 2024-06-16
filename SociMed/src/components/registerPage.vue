@@ -1,4 +1,5 @@
 <template>
+  <button><router-link to="/login">login Page</router-link></button>
   <div class="register-container">
     <h1>Register</h1>
     <form @submit.prevent="handleSubmit">
@@ -27,45 +28,53 @@
         <label for="confirmPassword">Confirm Password</label>
         <div class="input-container">
           <i class="fa fa-lock"></i>
-          <input type="password" id="confirmPassword" v-model="confirmPassword" required />
+          <input
+            type="password"
+            id="confirmPassword"
+            v-model="confirmPassword"
+            required
+          />
         </div>
       </div>
       <button type="submit" class="primary-button">Register</button>
     </form>
     <div class="register-link-container">
-      <p class="register-link">Already have an account? <router-link to="/login">Login here</router-link></p>
+      <p class="register-link">
+        Already have an account?
+        <router-link to="/login">Login here</router-link>
+      </p>
     </div>
   </div>
 </template>
 
 <script>
-import { useRouter } from 'vue-router';
+import { useRouter } from "vue-router";
 
 export default {
-  name: 'RegisterPage',
+  name: "RegisterPage",
   setup() {
     const router = useRouter();
     return {
       router,
-      username: '',
-      email: '',
-      password: '',
-      confirmPassword: ''
+      username: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
     };
   },
   methods: {
     handleSubmit() {
-      console.log('Username:', this.username);
-      console.log('Email:', this.email);
-      console.log('Password:', this.password);
-      console.log('Confirm Password:', this.confirmPassword);
-    }
-  }
+      console.log("Username:", this.username);
+      console.log("Email:", this.email);
+      console.log("Password:", this.password);
+      console.log("Confirm Password:", this.confirmPassword);
+    },
+  },
 };
 </script>
 
 <style scoped>
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css");
 
 .register-container {
   max-width: 600px;
@@ -76,7 +85,7 @@ export default {
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
 }
 
 h1 {
