@@ -1,6 +1,6 @@
 <template>
-  <div class="login-container">
-    <h1>Login to SociMed</h1>
+  <div class="register-container">
+    <h1>Register</h1>
     <form @submit.prevent="handleSubmit">
       <div class="form-group">
         <label for="username">Username</label>
@@ -10,16 +10,30 @@
         </div>
       </div>
       <div class="form-group">
+        <label for="email">Email</label>
+        <div class="input-container">
+          <i class="fa fa-envelope"></i>
+          <input type="email" id="email" v-model="email" required />
+        </div>
+      </div>
+      <div class="form-group">
         <label for="password">Password</label>
         <div class="input-container">
           <i class="fa fa-lock"></i>
           <input type="password" id="password" v-model="password" required />
         </div>
       </div>
-      <button type="submit" class="primary-button">Login</button>
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <div class="input-container">
+          <i class="fa fa-lock"></i>
+          <input type="password" id="confirmPassword" v-model="confirmPassword" required />
+        </div>
+      </div>
+      <button type="submit" class="primary-button">Register</button>
     </form>
     <div class="register-link-container">
-      <p class="register-link">Don't have an account? <router-link to="/register">Register here</router-link></p>
+      <p class="register-link">Already have an account? <router-link to="/login">Login here</router-link></p>
     </div>
   </div>
 </template>
@@ -28,33 +42,36 @@
 import { useRouter } from 'vue-router';
 
 export default {
-  name: 'LoginPage',
+  name: 'RegisterPage',
   setup() {
     const router = useRouter();
     return {
       router,
       username: '',
-      password: ''
+      email: '',
+      password: '',
+      confirmPassword: ''
     };
   },
   methods: {
     handleSubmit() {
       console.log('Username:', this.username);
+      console.log('Email:', this.email);
       console.log('Password:', this.password);
+      console.log('Confirm Password:', this.confirmPassword);
     }
   }
 };
 </script>
 
-
 <style scoped>
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
 
-.login-container {
+.register-container {
   max-width: 600px;
-  max-height: 800px;
+  max-height: 910px;
   margin: 0 auto;
-  padding: 1.5em;
+  padding: 0.5em;
   border: 1px solid #ccc;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -65,18 +82,19 @@ export default {
 h1 {
   text-align: center;
   color: #4a00e0;
-  margin-bottom: 1em;
-  font-size: 1.6em;
+  margin-bottom: 0.8em;
+  font-size: 1.4em;
 }
 
 .form-group {
-  margin-bottom: 1em;
+  margin-bottom: 0.8em;
 }
 
 label {
   display: block;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.4em;
   color: #4a00e0;
+  font-size: 0.9em;
 }
 
 .input-container {
@@ -86,18 +104,19 @@ label {
 .input-container i {
   position: absolute;
   top: 50%;
-  left: 10px;
+  left: 8px;
   transform: translateY(-50%);
   color: #aaa;
+  font-size: 0.9em;
 }
 
 input {
-  width: calc(100% - 2.5em);
-  padding: 0.6em 0.6em 0.6em 2.5em;
+  width: calc(100% - 2em);
+  padding: 0.5em 0.5em 0.5em 2em;
   box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 1em;
+  font-size: 0.9em;
   transition: border-color 0.3s;
 }
 
@@ -108,12 +127,12 @@ input:focus {
 
 .primary-button {
   width: 100%;
-  padding: 0.8em;
+  padding: 0.6em;
   background-color: #4a00e0;
   color: white;
   border: none;
   border-radius: 4px;
-  font-size: 1em;
+  font-size: 0.9em;
   cursor: pointer;
   transition: background-color 0.3s;
 }
@@ -125,7 +144,8 @@ input:focus {
 .register-link-container {
   color: #4a00e0;
   text-align: center;
-  margin-top: 1em;
+  margin-top: 0.8em;
+  font-size: 0.9em;
 }
 
 .register-link a {
@@ -136,12 +156,5 @@ input:focus {
 
 .register-link a:hover {
   text-decoration: underline;
-}
-
-@media (max-width: 600px) {
-  .login-container {
-    width: 90%;
-    padding: 1.2em;
-  }
 }
 </style>
