@@ -1,5 +1,5 @@
 <template>
-  <button><router-link to="/">Main Page</router-link></button>
+  <button><router-link to="/mainPage">Main Page</router-link></button>
   <div class="login-container">
     <h1>Login to SociMed</h1>
     <form @submit.prevent="handleSubmit">

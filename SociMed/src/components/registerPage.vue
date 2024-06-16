@@ -1,5 +1,5 @@
 <template>
-  <button><router-link to="/login">login Page</router-link></button>
+  <button><router-link to="/">login Page</router-link></button>
   <div class="register-container">
     <h1>Register</h1>
     <form @submit.prevent="handleSubmit">
@@ -41,7 +41,7 @@
     <div class="register-link-container">
       <p class="register-link">
         Already have an account?
-        <router-link to="/login">Login here</router-link>
+        <router-link to="/">Login here</router-link>
       </p>
     </div>
   </div>
