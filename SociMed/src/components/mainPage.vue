@@ -30,12 +30,15 @@
 </template>
 
 <script>
+import axios from "axios";
+
 import "../styles/mainPage.css";
 
 export default {
   data() {
     return {
       postInfo: null,
+      
     };
   },
   mounted() {
@@ -44,13 +47,10 @@ export default {
   methods: {
     async fetchData() {
       try {
-        const response = await fetch("https://api.example.com/data");
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        this.postInfo = await response.json();
+        const response = await axios.get("https://api.example.com/data");
+        this.postInfo = response.data;
       } catch (error) {
-        console.error("Hubo un problema con la solicitud Fetch:", error);
+        console.error("Hubo un problema con la solicitud Axios:", error);
       }
     },
   },

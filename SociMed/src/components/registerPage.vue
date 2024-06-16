@@ -2,7 +2,7 @@
   <button><router-link to="/">login Page</router-link></button>
   <div class="register-container">
     <h1>Register</h1>
-    <form @submit.prevent="handleSubmit">
+    <form @submit="handleSubmit">
       <div class="form-group">
         <label for="username">Username</label>
         <div class="input-container">
@@ -56,18 +56,31 @@ export default {
     const router = useRouter();
     return {
       router,
-      username: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
+      userData: {
+        username: "",
+        email: "",
+        password: "",
+      },
     };
   },
   methods: {
     handleSubmit() {
+      sendData();
       console.log("Username:", this.username);
       console.log("Email:", this.email);
       console.log("Password:", this.password);
       console.log("Confirm Password:", this.confirmPassword);
+    },
+    async sendData() {
+      try {
+        const response = await axios.post(
+          "https://api.example.com/user",
+          this.userData
+        );
+        console.log("Response from server:", response.data);
+      } catch (error) {
+        console.error("Hubo un problema con la solicitud Axios:", error);
+      }
     },
   },
 };
