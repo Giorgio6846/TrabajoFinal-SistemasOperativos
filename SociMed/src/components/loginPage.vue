@@ -1,28 +1,28 @@
 <template>
   <button><router-link to="/mainPage">Main Page</router-link></button>
-  <div class="login-container">
-    <h1>Login to SociMed</h1>
-    <form @submit.prevent="handleSubmit">
-      <div class="form-group">
-        <label for="username">Username</label>
-        <div class="input-container">
+  <div class="contenedor-login">
+    <h1>Iniciar sesión en SociMed</h1>
+    <form @submit.prevent="manejarEnvio">
+      <div class="grupo-formulario">
+        <label for="usuario">Usuario</label>
+        <div class="contenedor-entrada">
           <i class="fa fa-user"></i>
-          <input type="text" id="username" v-model="username" required />
+          <input type="text" id="usuario" v-model="usuario" required />
         </div>
       </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <div class="input-container">
+      <div class="grupo-formulario">
+        <label for="contrasena">Contraseña</label>
+        <div class="contenedor-entrada">
           <i class="fa fa-lock"></i>
-          <input type="password" id="password" v-model="password" required />
+          <input type="password" id="contrasena" v-model="contrasena" required />
         </div>
       </div>
-      <button type="submit" class="primary-button">Login</button>
+      <button type="submit" class="boton-primario">Iniciar sesión</button>
     </form>
-    <div class="register-link-container">
-      <p class="register-link">
-        Don't have an account?
-        <router-link to="/register">Register here</router-link>
+    <div class="contenedor-enlace-registro">
+      <p class="enlace-registro">
+        ¿No tienes una cuenta?
+        <router-link to="/register">Regístrate aquí</router-link>
       </p>
     </div>
   </div>
@@ -53,26 +53,27 @@ export default {
 <style scoped>
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css");
 
-.login-container {
-  max-width: 600px;
+.contenedor-login {
+  max-width: 500px;
   max-height: 800px;
   margin: 0 auto;
-  padding: 1.5em;
+  padding: 1em;
   border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  background-color: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
   font-family: "Arial", sans-serif;
 }
 
 h1 {
   text-align: center;
   color: #4a00e0;
-  margin-bottom: 1em;
+  margin-bottom: 0.6em;
+  margin-top: 0.3em;
   font-size: 1.6em;
 }
 
-.form-group {
+.grupo-formulario {
   margin-bottom: 1em;
 }
 
@@ -82,11 +83,11 @@ label {
   color: #4a00e0;
 }
 
-.input-container {
+.contenedor-entrada {
   position: relative;
 }
 
-.input-container i {
+.contenedor-entrada i {
   position: absolute;
   top: 50%;
   left: 10px;
@@ -109,7 +110,7 @@ input:focus {
   outline: none;
 }
 
-.primary-button {
+.boton-primario {
   width: 100%;
   padding: 0.8em;
   background-color: #4a00e0;
@@ -121,28 +122,28 @@ input:focus {
   transition: background-color 0.3s;
 }
 
-.primary-button:hover {
+.boton-primario:hover {
   background-color: #3700b3;
 }
 
-.register-link-container {
+.contenedor-enlace-registro {
   color: #4a00e0;
   text-align: center;
   margin-top: 1em;
 }
 
-.register-link a {
+.enlace-registro a {
   color: #4a00e0;
   text-decoration: none;
   transition: text-decoration 0.3s;
 }
 
-.register-link a:hover {
+.enlace-registro a:hover {
   text-decoration: underline;
 }
 
 @media (max-width: 600px) {
-  .login-container {
+  .contenedor-login {
     width: 90%;
     padding: 1.2em;
   }

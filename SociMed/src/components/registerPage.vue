@@ -1,47 +1,43 @@
 <template>
-  <button><router-link to="/">login Page</router-link></button>
-  <div class="register-container">
-    <h1>Register</h1>
-    <form @submit="handleSubmit">
-      <div class="form-group">
-        <label for="username">Username</label>
-        <div class="input-container">
+  <button><router-link to="/">Iniciar Sesión</router-link></button>
+  <div class="registro">
+    <h1>Registro</h1>
+    <form @submit.prevent="manejarRegistro">
+      <div class="grupo">
+        <label for="usuario">Usuario</label>
+        <div class="entrada">
           <i class="fa fa-user"></i>
-          <input type="text" id="username" v-model="username" required />
+          <input type="text" id="usuario" v-model="datosUsuario.usuario" required />
         </div>
       </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <div class="input-container">
+      <div class="grupo">
+        <label for="correo">Correo</label>
+        <div class="entrada">
           <i class="fa fa-envelope"></i>
-          <input type="email" id="email" v-model="email" required />
+          <input type="email" id="correo" v-model="datosUsuario.correo" required />
         </div>
       </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <div class="input-container">
+      <div class="grupo">
+        <label for="contrasena">Contraseña</label>
+        <div class="entrada">
           <i class="fa fa-lock"></i>
-          <input type="password" id="password" v-model="password" required />
+          <input type="password" id="contrasena" v-model="datosUsuario.contrasena" required />
         </div>
       </div>
-      <div class="form-group">
-        <label for="confirmPassword">Confirm Password</label>
-        <div class="input-container">
+      <div class="grupo">
+        <label for="confirmarContrasena">Confirmar</label>
+        <div class="entrada">
           <i class="fa fa-lock"></i>
-          <input
-            type="password"
-            id="confirmPassword"
-            v-model="confirmPassword"
-            required
-          />
+          <input type="password" id="confirmarContrasena" v-model="confirmarContrasena" required />
         </div>
+        <p v-if="contrasenasDistintas" class="error">Las contraseñas no coinciden</p>
       </div>
-      <button type="submit" class="primary-button">Register</button>
+      <button type="submit" class="boton" :disabled="contrasenasDistintas">Registrarse</button>
     </form>
-    <div class="register-link-container">
-      <p class="register-link">
-        Already have an account?
-        <router-link to="/">Login here</router-link>
+    <div class="inicio">
+      <p class="enlace">
+        ¿Cuenta existente?
+        <router-link to="/">Iniciar sesión</router-link>
       </p>
     </div>
   </div>
@@ -49,35 +45,40 @@
 
 <script>
 import { useRouter } from "vue-router";
+import axios from "axios";
 
 export default {
-  name: "RegisterPage",
+  name: "PaginaDeRegistro",
   setup() {
     const router = useRouter();
     return {
       router,
-      userData: {
-        username: "",
-        email: "",
-        password: "",
+      datosUsuario: {
+        usuario: "",
+        correo: "",
+        contrasena: "",
       },
+      confirmarContrasena: "",
     };
   },
-  methods: {
-    handleSubmit() {
-      sendData();
-      console.log("Username:", this.username);
-      console.log("Email:", this.email);
-      console.log("Password:", this.password);
-      console.log("Confirm Password:", this.confirmPassword);
+  computed: {
+    contrasenasDistintas() {
+      return this.datosUsuario.contrasena !== this.confirmarContrasena;
     },
-    async sendData() {
+  },
+  methods: {
+    manejarRegistro() {
+      if (!this.contrasenasDistintas) {
+        this.enviarDatos();
+      }
+    },
+    async enviarDatos() {
       try {
-        const response = await axios.post(
-          "https://api.example.com/user",
-          this.userData
+        const respuesta = await axios.post(
+          "https://api.example.com/usuario",
+          this.datosUsuario
         );
-        console.log("Response from server:", response.data);
+        console.log("Respuesta del servidor:", respuesta.data);
       } catch (error) {
         console.error("Hubo un problema con la solicitud Axios:", error);
       }
@@ -89,41 +90,42 @@ export default {
 <style scoped>
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css");
 
-.register-container {
-  max-width: 600px;
-  max-height: 910px;
+.registro {
+  max-width: 500px;
+  max-height: 800px;
   margin: 0 auto;
-  padding: 0.5em;
+  padding: 1em;
   border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  background-color: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
   font-family: "Arial", sans-serif;
 }
 
 h1 {
   text-align: center;
   color: #4a00e0;
-  margin-bottom: 0.8em;
+  margin-top: auto;
+  margin-bottom: 0.4em;
   font-size: 1.4em;
 }
 
-.form-group {
+.grupo {
   margin-bottom: 0.8em;
 }
 
 label {
   display: block;
-  margin-bottom: 0.4em;
+  margin-bottom: 0.2em;
   color: #4a00e0;
   font-size: 0.9em;
 }
 
-.input-container {
+.entrada {
   position: relative;
 }
 
-.input-container i {
+.entrada i {
   position: absolute;
   top: 50%;
   left: 8px;
@@ -147,11 +149,17 @@ input:focus {
   outline: none;
 }
 
-.primary-button {
+.error {
+  color: red;
+  font-size: 0.8em;
+  margin-top: 0.4em;
+}
+
+.boton {
   width: 100%;
-  padding: 0.6em;
+  padding: 0.2em;
   background-color: #4a00e0;
-  color: white;
+  color: #fff;
   border: none;
   border-radius: 4px;
   font-size: 0.9em;
@@ -159,24 +167,36 @@ input:focus {
   transition: background-color 0.3s;
 }
 
-.primary-button:hover {
+.boton:hover {
   background-color: #3700b3;
 }
 
-.register-link-container {
+.boton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.inicio {
   color: #4a00e0;
   text-align: center;
   margin-top: 0.8em;
   font-size: 0.9em;
 }
 
-.register-link a {
+.enlace a {
   color: #4a00e0;
   text-decoration: none;
   transition: text-decoration 0.3s;
 }
 
-.register-link a:hover {
+.enlace a:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 500px) {
+  .registro {
+    width: 90%;
+    padding: 0.8em;
+  }
 }
 </style>
