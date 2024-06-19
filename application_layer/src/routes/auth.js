@@ -4,6 +4,7 @@ const User = require('../models/user')
 const bcrypt = require('bcrypt')
 const router = express.Router();
 
+//Works, nice
 router.post('/authenticate', async(req, res) => {
   const { email, password } = req.body;
   if(!email) {
@@ -23,8 +24,10 @@ router.post('/authenticate', async(req, res) => {
     return res.status(401).json({message: 'Email or password is incorrect'});
   }
 
-  const token = jwt.sign({ userId:user._id}, process.env.JWT_SECRET);
+  const token = jwt.sign({ userId:user._id}, 'secretxd');
   res.json({token})
+
+  console.log("Log Succesful")
 });
 
 module.exports = router

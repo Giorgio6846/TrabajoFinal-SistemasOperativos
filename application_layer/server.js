@@ -5,6 +5,8 @@ const cors = require('cors')
 const history = require('connect-history-api-fallback');
 const ViteExpress = require("vite-express")
 
+require('./src/db')
+
 const userRouter = require('./src/routes/users')
 const authRouter = require('./src/routes/auth')
 const postRouter = require('./src/routes/posts')
@@ -23,7 +25,7 @@ const port = 8080;
 ViteExpress.config({ mode: "production"})
 
 app.use('/api',userRouter);
-app.use('/api',authRouter);
+app.use('/',authRouter);
 app.use('/api',postRouter);
 app.use('/api',commentRouter)
 

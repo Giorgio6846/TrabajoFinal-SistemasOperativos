@@ -4,13 +4,30 @@ const auth = require('../middleware/auth')
 const { check, validationResult } = require('express-validator');
 const Post = require('../models/posts')
 
+//TODO
 router.post('/posts',
     [auth, [check('description', 'Description is required').not().isEmpty()]],
     async(req,res) => {
+        console.log("Post Received")
+        
         const errors = validationResult(req);
         if(!errors.isEmpty()) {
             return res.status(422).json({ message: 'Invalid inputs'});
         }
+
+        const { description } = req.body
+        const photo = req.file
+
+        if(!photo) {
+            return res.status(422).json({ message: 'Invalid inputs'});
+        }
+
+        if(!description) {
+            return res.status(422).json({ message: 'Invalid inputs'});
+        }
+
+        console.log("Post Sucessful")
+    
         //TODO UPLOAD IMAGE TO BUCKET
         tags = "1"
         namefileFromBucket="owo"

@@ -4,6 +4,7 @@ const auth = require('../middleware/auth')
 const { check, validationResult } = require('express-validator')
 const Comment = require('../models/comment')
 
+//TODO
 router.post('/comments',
     [auth, [check('description', 'Description is required').not().isEmpty()]],
     async(req, res) => {

@@ -1,6 +1,8 @@
 
 /data_layer
 /application_layer/node_modules
+/.venv
+
 # Logs
 logs
 *.log

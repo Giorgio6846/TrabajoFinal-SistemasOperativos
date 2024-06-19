@@ -16,6 +16,7 @@ services:
       - /dist/
     environment:
       - JWT_SECRET='secretxd'
+      - MONGO_URL='mongodb://0.0.0.0:27017'
 
   mongo:
     image: mongo
