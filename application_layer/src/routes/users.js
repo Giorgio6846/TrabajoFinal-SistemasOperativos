@@ -4,13 +4,16 @@ const auth = require('../middleware/auth')
 
 const User = require('../models/user')
 
+//Works
 router.post('/register', async(req,res) =>{
-    const user = new User({name, email, password});
+    const {username, email, password} = req.body;
+    const user = new User({username: username, email: email, password: password});
     await user.save();
 
     res.json(user);
 });
 
+//TODO
 router.get('/user', auth, async (req,res) =>{
     try {
         const userId = req.user.id;

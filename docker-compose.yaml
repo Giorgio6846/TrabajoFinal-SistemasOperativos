@@ -2,29 +2,25 @@ version: '3.1'
 
 services:
   
-  webServer:
-    image: tfso:tag
+  appLayer:
+    image: applayer:tag
     build: 
       context: .
-      dockerfile: Dockerfile
+      dockerfile: DockerfileApp
     restart: 'always'
     ports:
       - '8080:8080'
     volumes: 
-      - ./application_layer/src/:/webServer/application_layer/src/:website
-      - ./application_layer/server.js:/webServer/application_layer/server.js:website
-      - ./application_layer/package.json:/webServer/application_layer/package.json:website
-      - ./application_layer/package-lock.json:/webServer/application_layer/package-lock.json:website
-      
-      - ./SociMed/:/webServer/SociMed/:website
+      - ./application_layer/:/webServer/application_layer/:website
+      - /node_modules/
+      - /dist/
     environment:
       - JWT_SECRET='secretxd'
+      - MONGO_URL='mongodb://0.0.0.0:27017'
+
   mongo:
     image: mongo
     restart: always
-    #environment:
-    #  MONGO_INITDB_ROOT_USERNAME: "loliadmin"
-    #  MONGO_INITDB_ROOT_PASSWORD: "loliadmin"
     ports:
       - '27017:27017'
     volumes:
