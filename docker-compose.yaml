@@ -2,18 +2,18 @@ version: '3.1'
 
 services:
   
-  appLayer:
+  backend:
     image: applayer:tag
     build: 
       context: .
-      dockerfile: DockerfileApp
+      dockerfile: Dockerfile
     restart: 'always'
     ports:
       - '8080:8080'
     volumes: 
-      - ./application_layer/:/webServer/application_layer/:website
-      - /node_modules/
-      - /dist/
+      - ./backend/:/backend/:website
+      - /backend/node_modules
+      - /backend/dist
     environment:
       - JWT_SECRET='secretxd'
       - MONGO_URL='mongodb://0.0.0.0:27017'
