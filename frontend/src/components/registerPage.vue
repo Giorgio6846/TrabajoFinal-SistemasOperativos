@@ -80,7 +80,7 @@ export default {
           }
         );
         console.log("Response:", response.data);
-        this.router.push("/login");
+        this.router.push("/");
       } catch (error) {
         console.error("There was an error!", error);
       }

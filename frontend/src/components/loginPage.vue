@@ -40,25 +40,25 @@ export default {
     const router = useRouter();
     return {
       router,
-      email: "", 
+      email: "",
       password: "",
     };
   },
 
   methods: {
     async handleSubmit() {
-      console.log("Email:", this.email); 
+      console.log("Email:", this.email);
       console.log("Password", this.password);
       try {
         const response = await axios.post(
           "http://localhost:8080/authenticate",
           {
-            email: this.email, 
+            email: this.email,
             password: this.password,
           }
         );
         console.log("Response:", response.data);
-        this.router.push("/login");
+        this.router.push("/mainPage");
       } catch (error) {
         console.error("There was an error!", error);
       }
