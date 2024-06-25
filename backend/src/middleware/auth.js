@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
-const User = require('../routes/users');
+const User = require('../models/user');
+const mongoose = require('mongoose');
 
 module.exports = async function(req, res, next){
     if(!req.headers.authorization) {
@@ -14,8 +15,10 @@ module.exports = async function(req, res, next){
     }
 
     try{ 
-        const decoded = jwt.verify(token, 'mysecret');
-        
+        const decoded = jwt.verify(token, 'secretxd');
+        console.log(decoded)
+        console.log(decoded.userId)
+
         const user = await User.findById(decoded.userId);
         if(!user){
             return res.status(400).json({ message: 'User does not exist'})

@@ -24,7 +24,8 @@ router.post('/authenticate', async(req, res) => {
     return res.status(401).json({message: 'Email or password is incorrect'});
   }
 
-  const token = jwt.sign({ userId:user._id}, 'secretxd');
+  console.log(user._id)
+  const token = jwt.sign({userId:user._id}, 'secretxd', {noTimestamp:true});
   res.json({token})
 
   console.log("Log Succesful")
