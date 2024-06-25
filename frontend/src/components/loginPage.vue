@@ -2,19 +2,21 @@
   <button><router-link to="/mainPage">Main Page</router-link></button>
   <div class="contenedor-login">
     <h1>Iniciar sesión en SociMed</h1>
-    <form @submit.prevent="manejarEnvio">
+    <form @submit.prevent="handleSubmit">
       <div class="grupo-formulario">
-        <label for="usuario">Usuario</label>
+        <label for="email">Email</label>
+        <!-- Changed from username to email -->
         <div class="contenedor-entrada">
-          <i class="fa fa-user"></i>
-          <input type="text" id="usuario" v-model="usuario" required />
+          <i class="fa fa-envelope"></i>
+          <input type="email" id="email" v-model="email" required />
+          <!-- Changed from username to email -->
         </div>
       </div>
       <div class="grupo-formulario">
-        <label for="contrasena">Contraseña</label>
+        <label for="password">Contraseña</label>
         <div class="contenedor-entrada">
           <i class="fa fa-lock"></i>
-          <input type="password" id="contrasena" v-model="contrasena" required />
+          <input type="password" id="password" v-model="password" required />
         </div>
       </div>
       <button type="submit" class="boton-primario">Iniciar sesión</button>
@@ -30,6 +32,7 @@
 
 <script>
 import { useRouter } from "vue-router";
+import axios from "axios";
 
 export default {
   name: "LoginPage",
@@ -37,14 +40,28 @@ export default {
     const router = useRouter();
     return {
       router,
-      username: "",
+      email: "", 
       password: "",
     };
   },
+
   methods: {
-    handleSubmit() {
-      console.log("Username:", this.username);
-      console.log("Password:", this.password);
+    async handleSubmit() {
+      console.log("Email:", this.email); 
+      console.log("Password", this.password);
+      try {
+        const response = await axios.post(
+          "http://localhost:8080/authenticate",
+          {
+            email: this.email, 
+            password: this.password,
+          }
+        );
+        console.log("Response:", response.data);
+        this.router.push("/login");
+      } catch (error) {
+        console.error("There was an error!", error);
+      }
     },
   },
 };

@@ -1,5 +1,5 @@
 <template>
-  <button><router-link to="/login">login Page</router-link></button>
+  <button><router-link to="/login">Login Page</router-link></button>
   <div class="register-container">
     <h1>Register</h1>
     <form @submit.prevent="handleSubmit">
@@ -36,7 +36,7 @@
           />
         </div>
       </div>
-      <button type="submit" class="primary-button" @click="handleSubmit()">Register</button>
+      <button type="submit" class="primary-button">Register</button>
     </form>
     <div class="register-link-container">
       <p class="register-link">
@@ -49,10 +49,9 @@
 
 <script>
 import { useRouter } from "vue-router";
+import axios from "axios";
 
 export default {
-  //todo: Verify password
-
   name: "RegisterPage",
   setup() {
     const router = useRouter();
@@ -65,19 +64,27 @@ export default {
     };
   },
   methods: {
-    handleSubmit() {
-      const reponse = axios.post("register", {
-        username: this.username,
-        email: this.email,
-        password: this.password
-      });
-
-      console.log(response)
-
-      console.log("Username:", this.username);
-      console.log("Email:", this.email);
-      console.log("Password:", this.password);
-      console.log("Confirm Password:", this.confirmPassword);
+    async handleSubmit() {
+      if (this.password !== this.confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+      }
+      try {
+        console.log("fetching");
+        const response = await axios.post(
+          "http://localhost:8080/api/register",
+          {
+            username: this.username,
+            email: this.email,
+            password: this.password,
+          }
+        );
+        console.log("Response:", response.data);
+        this.router.push("/login");
+      } catch (error) {
+        console.error("There was an error!", error);
+      }
+      console.log("fetching");
     },
   },
 };
