@@ -14,7 +14,14 @@
       <div class="search">
         <input type="text" placeholder="¡¿Qué está pasando?!" />
       </div>
-      <div class="publicacion"></div>
+      <div class="publicacion">
+        <input type="file" id="fileInput" @change="handleFileInput" />
+        <input
+          v-model="post.description"
+          placeholder="Enter your description"
+        />
+        <button @click="createPost">Create Post</button>
+      </div>
     </div>
     <div class="thirdColumn">
       <div class="loginRegister">
@@ -38,19 +45,41 @@ export default {
   data() {
     return {
       postInfo: null,
-      
+      selectedFile: null,
+      post: {
+        description: "",
+      },
     };
   },
-  mounted() {
-    this.fetchData();
-  },
+  mounted() {},
   methods: {
-    async fetchData() {
+    handleFileInput(event) {
+      this.selectedFile = event.target.files[0];
+    },
+    async createPost() {
+      if (!this.selectedFile) {
+        console.error("Please select a file first");
+        return;
+      }
       try {
-        const response = await axios.get("https://api.example.com/data");
+        const token = localStorage.getItem("authToken");
+        const formData = new FormData();
+        formData.append("description", this.post.description);
+        formData.append("photo", this.selectedFile);
+
+        const response = await axios.post(
+          "http://localhost:8080/api/posts",
+          formData,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         this.postInfo = response.data;
+        console.log("Post created successfully:", this.postInfo);
       } catch (error) {
-        console.error("Hubo un problema con la solicitud Axios:", error);
+        console.error("Error creating post:", error);
       }
     },
   },

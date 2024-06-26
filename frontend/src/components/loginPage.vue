@@ -47,8 +47,6 @@ export default {
 
   methods: {
     async handleSubmit() {
-      console.log("Email:", this.email);
-      console.log("Password", this.password);
       try {
         const response = await axios.post(
           "http://localhost:8080/authenticate",
@@ -57,10 +55,14 @@ export default {
             password: this.password,
           }
         );
-        console.log("Response:", response.data);
-        this.router.push("/mainPage");
+
+        if (response.data.token) {
+          localStorage.setItem("authToken", response.data.token);
+          console.log("Token stored:", response.data.token);
+          this.router.push("/mainPage");
+        }
       } catch (error) {
-        console.error("There was an error!", error);
+        console.error("Login failed:", error);
       }
     },
   },
