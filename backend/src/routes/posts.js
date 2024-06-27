@@ -46,7 +46,7 @@ const uploadToS3Bucket = (image, filePath) => {
 router.post('/posts', 
     [
         auth,
-        upload.single('photo'), // Expecting a file field named 'photo'
+        //upload.single('photo'), // Expecting a file field named 'photo'
         [check('description', 'Description is required').not().isEmpty()],
     ],
     async (req, res) => {
@@ -58,12 +58,13 @@ router.post('/posts',
         }
 
         const { description } = req.body;
-        const photo = req.file;
+        //const photo = req.file;
         console.log(description)
-
+        /*
         if (!photo) {
             return res.status(422).json({ message: 'Image not sent' });
         }
+        */
         const token = req.headers.authorization.split(' ')[1]
         const decoded = jwt.verify(token, 'secretxd');
         
@@ -76,7 +77,7 @@ router.post('/posts',
                 description: description,
             });
 
-            await uploadToS3Bucket(photo, `${usernameId}/${post.id}/image.jpg`);
+            //await uploadToS3Bucket(photo, `${usernameId}/${post.id}/image.jpg`);
             await post.save();
 
             res.json({
@@ -125,6 +126,40 @@ router.get('/posts',
     }
 );
 
+router.get('/allPosts', 
+    [
+        auth,
+    ],
+    async (req, res) => {
+        console.log("Post Received");
+
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(422).json({ message: 'Invalid inputs', errors: errors.array() });
+        }
+
+        const token = req.headers.authorization.split(' ')[1]
+        const decoded = jwt.verify(token, 'secretxd');
+        
+        usernameId = decoded.userId
+        console.log(usernameId)
+
+        try {
+            const posts = await Post.find()
+            
+            console.log(user._id)
+
+            res.json({
+                posts: user.posts
+            });
+
+        } catch (err) {
+            console.error(err.message);
+            res.status(500).send('Server Error');
+        }
+    }
+);
+
 const getFileFromS3 = (filePath) => {
     return new Promise((resolve, reject) => {
         const params = {
@@ -153,10 +188,10 @@ router.post('/post', async (req, res) => {
             const post = await Post.findById(postId)
             console.log(post.description)
 
-            const filePath = `${post.author}/${post._id}/image.jpg`;
-            console.log(filePath)
-            const fileData = await getFileFromS3(filePath)
-            console.log(typeof(fileData))
+            //const filePath = `${post.author}/${post._id}/image.jpg`;
+            //console.log(filePath)
+            //const fileData = await getFileFromS3(filePath)
+            //console.log(typeof(fileData))
 
             const user = await User.findById(post.author)
 
