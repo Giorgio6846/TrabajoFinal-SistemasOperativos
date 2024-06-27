@@ -71,7 +71,7 @@ export default {
         formData.append("description", this.post.description);
 
         const response = await axios.post(
-          "http://4.228.217.251:8080/api/posts",
+          "http://10.147.17.152:8080/api/posts",
           this.post,
           {
             headers: {
@@ -90,7 +90,7 @@ export default {
       try {
         const token = localStorage.getItem("authToken");
         const response = await axios.get(
-          "http://4.228.217.251:8080/api/posts",
+          "http://10.147.17.152:8080/api/posts",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -104,7 +104,7 @@ export default {
         if (this.IdPost.length > 0) {
           const postPromises = this.IdPost.map((postId) =>
             axios.post(
-              "http://4.228.217.251:8080/api/post",
+              "http://10.147.17.152:8080/api/post",
               { postId: postId },
               {
                 headers: {

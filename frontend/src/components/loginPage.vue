@@ -49,7 +49,7 @@ export default {
     async handleSubmit() {
       try {
         const response = await axios.post(
-          "http://4.228.217.251:8080/authenticate",
+          "http://10.147.17.152:8080/authenticate",
           {
             email: this.email,
             password: this.password,
