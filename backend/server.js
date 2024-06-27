@@ -6,14 +6,12 @@ const history = require('connect-history-api-fallback');
 const ViteExpress = require("vite-express")
 const multer = require("multer")
 
-require('./src/bucket')
 require('./src/db')
 
 const userRouter = require('./src/routes/users')
 const authRouter = require('./src/routes/auth')
 const postRouter = require('./src/routes/posts')
 const commentRouter = require('./src/routes/comments')
-
 
 const app = express()
 
