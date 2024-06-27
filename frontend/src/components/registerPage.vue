@@ -72,7 +72,7 @@ export default {
       try {
         console.log("fetching");
         const response = await axios.post(
-          "http://localhost:8080/api/register",
+          "http://10.147.17.152:8080/api/register",
           {
             username: this.username,
             email: this.email,
